@@ -6,21 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        #canvas {
-            position: relative;
-            left: calc(50% - 390px);
-            top: 50px;
-            border: 1px dotted black;
-            cursor: crosshair;
-            background: white;
-        }
-    </style>
 </head>
 
 <body>
-
-    <div>Teachable Machine Image Model</div>
     <button type="button" onclick="init()">Start</button>
     <canvas id="canvas"></canvas>
     <div id="webcam-container"></div>
@@ -30,12 +18,14 @@
     <script type="text/javascript">
         var canvas;
         var context;
+        let isDrawing;
+
 
         window.onload = function () {
             canvas = document.getElementById('canvas');
             context = canvas.getContext('2d');
-            canvas.width = 780;
-            canvas.height = 490;
+            canvas.width = 128;
+            canvas.height = 128;
             context.strokeStyle = "#913d88";
             context.lineWidth = 2;
 
@@ -89,18 +79,15 @@
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
+            await predict();
         }
 
-        async function loop() {
-            canvasElement.update(); // update the webcam frame
-            await predict();
-            window.requestAnimationFrame(loop);
-        }
 
         // run the webcam image through the image model
         async function predict() {
             // predict can take in an image, video or canvas html element
-            const prediction = await model.predict(canvasElement.canvas);
+            const prediction = await model.predict(canvasElement);
+            console.log(prediction);
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
                     prediction[i].className + ": " + prediction[i].probability.toFixed(2);
@@ -108,7 +95,17 @@
             }
         }
     </script>
-
+    <style>
+        #canvas {
+            position: relative;
+            left: calc(50% - 390px);
+            top: 50px;
+            border: 1px dotted black;
+            cursor: crosshair;
+            background: white;
+        }
+    </style>
+    </head>
 
 </body>
 

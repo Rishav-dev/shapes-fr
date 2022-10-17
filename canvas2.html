@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas">
+
+    </canvas>
+    <script>
+        var canvas;
+        var context;
+        let isDrawing;
+
+        window.onload = function () {
+            canvas = document.getElementById('canvas');
+            context = canvas.getContext('2d');
+            canvas.width = 780;
+            canvas.height = 490;
+            context.strokeStyle = "#913d88";
+            context.lineWidth = 2;
+
+            canvas.onmousedown = startDrawing;
+            canvas.onmouseup = stopDrawing;
+            canvas.onmousemove = draw;
+
+            function startDrawing(e) {
+                isDrawing = true;
+                context.beginPath();
+                context.moveTo(e.pageX - canvas.offsetLeft, e.pageY - canvas.offsetTop);
+            }
+
+            function draw(e) {
+                if (isDrawing == true) {
+                    var x = e.pageX - canvas.offsetLeft;
+                    var y = e.pageY - canvas.offsetTop;
+
+                    context.lineTo(x, y);
+                    context.stroke();
+                }
+            }
+
+            function stopDrawing() {
+                isDrawing = false;
+            }
+        }
+    </script>
+        <style>
+            #canvas {
+                position: relative;
+                left: calc(50% - 390px);
+                top: 50px;
+                border: 1px dotted black;
+                cursor: crosshair;
+                background: white;
+            }
+        </style>
+    </head>
+</body>
+</html>

@@ -53,11 +53,8 @@ async function init() {
     labelContainer.appendChild(document.createElement("div"));
   }
   await predict();
-  setInterval(async () => {
-    canvasElement = document.getElementById("canvas");
-    await predict();
-  }, 1000);
 }
+init();
 
 async function predict() {
   const prediction = await model.predict(canvasElement);
@@ -67,6 +64,11 @@ async function predict() {
       prediction[i].className + ": " + prediction[i].probability.toFixed(2);
     labelContainer.childNodes[i].innerHTML = classPrediction;
   }
+}
+
+async function input() {
+  canvasElement = document.getElementById("canvas");
+  await predict();
 }
 
 function clearCanvas() {

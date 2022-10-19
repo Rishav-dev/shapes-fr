@@ -5,10 +5,10 @@ let isDrawing;
 window.onload = function () {
   canvas = document.getElementById("canvas");
   context = canvas.getContext("2d");
-  canvas.width = 512;
-  canvas.height = 512;
+  canvas.width = 224;
+  canvas.height = 224;
   context.strokeStyle = "#913d88";
-  context.lineWidth = 2;
+  context.lineWidth = 7;
 
   canvas.onmousedown = startDrawing;
   canvas.onmouseup = stopDrawing;
@@ -35,7 +35,7 @@ window.onload = function () {
   }
 };
 
-const URL = "https://teachablemachine.withgoogle.com/models/O76CzEi4N/";
+const URL = "https://teachablemachine.withgoogle.com/models/la0AkB7bG/";
 
 let model, canvasElement, labelContainer, maxPredictions;
 canvasElement = document.getElementById("canvas");

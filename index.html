@@ -10,10 +10,24 @@
         <canvas id="canvas"></canvas>
     </div>
     <div id="buttondiv">
-        <button id="predict" onclick="input()">Predict</button>
-        <button id="clear" onclick="clearCanvas()">Clear</button>
+        <div class="container">
+
+            <a id="predict" class="btn btn-border-1" onclick="predict()">Predict</a>
+        
+            <a id="clear" class="btn btn-border-1" onclick="clearCanvas()">Clear</a>
     </div>
-    <div id="label-container"></div>
+</div>
+        
+
+
+    
+    <div id="label-container">
+
+
+        
+    </div>
+
+    
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <script src="app.js"></script>

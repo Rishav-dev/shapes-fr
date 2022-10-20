@@ -7,7 +7,7 @@ window.onload = function () {
   context = canvas.getContext("2d");
   canvas.width = 224;
   canvas.height = 224;
-  context.strokeStyle = "#913d88";
+  context.strokeStyle = "#FFFFFF";
   context.lineWidth = 7;
 
   canvas.onmousedown = startDrawing;
@@ -63,7 +63,10 @@ async function predict() {
     const classPrediction =
       prediction[i].className + ": " + prediction[i].probability.toFixed(2);
     labelContainer.childNodes[i].innerHTML = classPrediction;
+    labelContainer.childNodes[i].setAttribute('id', 'box');
   }
+
+
 }
 
 async function input() {

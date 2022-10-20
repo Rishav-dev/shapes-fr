@@ -63,10 +63,7 @@ async function predict() {
     const classPrediction =
       prediction[i].className + ": " + prediction[i].probability.toFixed(2);
     labelContainer.childNodes[i].innerHTML = classPrediction;
-    labelContainer.childNodes[i].setAttribute('id', 'box');
   }
-
-
 }
 
 async function input() {
@@ -77,3 +74,14 @@ async function input() {
 function clearCanvas() {
   context.clearRect(0, 0, canvas.width, canvas.height);
 }
+document.querySelector('#download').addEventListener('click', ()=> {
+  var canvas = document.querySelector("#canvas");
+  var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+  
+  var element = document.createElement('a');
+  var filename = 'test.png';
+  element.setAttribute('href', image);
+  element.setAttribute('download', filename);
+
+  element.click();
+})

@@ -61,9 +61,12 @@ async function predict() {
   console.log(prediction);
   for (let i = 0; i < maxPredictions; i++) {
     const classPrediction =
-      prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+      prediction[i].className +
+      ": " +
+      Math.round(prediction[i].probability.toFixed(2) * 100) +
+      "%";
     labelContainer.childNodes[i].innerHTML = classPrediction;
-  }
+  } // 3
 }
 
 async function input() {
@@ -74,14 +77,16 @@ async function input() {
 function clearCanvas() {
   context.clearRect(0, 0, canvas.width, canvas.height);
 }
-document.querySelector('#download').addEventListener('click', ()=> {
+function download(shape) {
   var canvas = document.querySelector("#canvas");
-  var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-  
-  var element = document.createElement('a');
-  var filename = 'test.png';
-  element.setAttribute('href', image);
-  element.setAttribute('download', filename);
+  var image = canvas
+    .toDataURL("image/png")
+    .replace("image/png", "image/octet-stream");
+
+  var element = document.createElement("a");
+  var filename = shape + ".png";
+  element.setAttribute("href", image);
+  element.setAttribute("download", filename);
 
   element.click();
-})
+}

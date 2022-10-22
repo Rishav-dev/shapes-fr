@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+</head>
+
+<body> <div class="info">
+    <h1>An introduction to Neural Networks</h1>
+    At first sight, a machine recognizing handrawn shapes may not seem very impressive. After all you can do it all the
+    time with your own eyes. But if you think about it, it is actually quite a feat. The individual pixels being lit in
+    these 2 images are very different.
+
+    <br>
+    <img height=224px src="images/shapeOnCanvas1.png" alt="shapeOnCanvas"></img>
+    <img height=224px src="images/shapeOnCanvas2.png" alt="shapeOnCanvas2"></img>
+
+    <h1>How Neural Networks work</h1>
+    <p>To understand how neural networks work we'll use our simple model as an example. This will make it easier to
+        understand but in reality theres so much more to neural networks and machine learning in general that we can't
+        cover it all here.</p>
+
+    <p>First we need to convert the image into something a computer can understand and process. Since we're using a
+        black and white canvas we can use a single grayscale
+        value for each pixel to make processing faster.</p>
+    <figure>
+        <img height="400px"
+            src="./images/Screenshot-from-2021-03-16-10-58-08.png"
+            alt="">
+        <figcaption>Grayscale Value Conversion</figcaption>
+    </figure>
+    <p>Now that we have a grayscale value for each pixel we can use it to train our neural network. Now, we create the
+        training set containing handdrawn traingles, squares and quadrilaterals.</p>
+        <img height="400px"src="./images/Screenshot 2022-10-21 113225.png" alt="">
+    <p>Now we can train our neural network. We do this by feeding it the training set and telling it what the correct
+        answer is. The neural network will then try to guess what the correct answer is. If it guesses wrong we tell it
+        what the correct answer is and it will try again. This process is called backpropagation and it is what makes
+        neural networks so powerful.</p>
+    <img src="./images/backpropagation.png" alt="" srcset="">
+    <p>After training the neural network we can use it to predict what shape is drawn on the canvas. We do this by
+        feeding the neural network the grayscale values of the pixels and it will tell us what it thinks the shape is.
+    </p>
+    <button onclick="location.href='./index.html'">Test it</button>
+    </div>
+</body>
+
+</html>

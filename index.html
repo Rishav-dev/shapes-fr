@@ -3,9 +3,22 @@
 
 <head>
     <title>Shape recognition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+    <div class="pageTitleDiv">
+
+        <div class="pageTitleDiv2">
+            <h2 class="pageTitle">Shape Recognition</h2>
+        </div>
+        <div class="infoPageBtnDiv "><button id="infoPageBtn" class="glow-on-hover"
+                onclick="location.href='./info.html'"><span>&#63;</span></button></div>
+
+    </div>
     <div id="canvasdiv">
         <canvas id="canvas"></canvas>
     </div>
@@ -13,19 +26,19 @@
         <div class="container">
 
             <a id="predict" class="btn btn-border-1" onclick="predict()">Predict</a>
-        
+
             <a id="clear" class="btn btn-border-1" onclick="clearCanvas()">Clear</a>
+
+        </div>
     </div>
-    <button id="download">Download</button>
-
-</div>
-        
 
 
-    
+
+
+
     <div id="label-container"></div>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <script src="app.js"></script>

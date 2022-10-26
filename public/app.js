@@ -35,7 +35,7 @@ window.onload = function () {
   }
 };
 
-const URL = "https://teachablemachine.withgoogle.com/models/la0AkB7bG/";
+const URL = "https://teachablemachine.withgoogle.com/models/wj12eYrdK/";
 
 let model, canvasElement, labelContainer, maxPredictions;
 canvasElement = document.getElementById("canvas");
